@@ -1,19 +1,18 @@
 ﻿@model EX.Core.Domain.CLient
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Edit";
 }
 
-<h1>Create</h1>
+<h1>Edit</h1>
 
 <h4>CLient</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
-
+        <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-           
+            
             <div class="form-group">
                 <label asp-for="login" class="control-label"></label>
                 <input asp-for="login" class="form-control" />
@@ -24,22 +23,18 @@
                 <input asp-for="password" class="form-control" />
                 <span asp-validation-for="password" class="text-danger"></span>
             </div>
-          
             <div class="form-group">
                 <label asp-for="photo" class="control-label"></label>
-                <input type="file" name="photoImg" class="form-control" />
+                <input asp-for="photo" class="form-control" />
                 <span asp-validation-for="photo" class="text-danger"></span>
             </div>
-
             <div class="form-group">
                 <label asp-for="ConseillerFK" class="control-label"></label>
-                @*<input asp-for="ConseillerFK" class="form-control" />*@
-                <select class="form-control" asp-for="ConseillerFK" asp-items="@ViewBag.p">
-                </select>
+                <input asp-for="ConseillerFK" class="form-control" />
                 <span asp-validation-for="ConseillerFK" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>

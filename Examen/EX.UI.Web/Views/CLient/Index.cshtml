@@ -70,9 +70,9 @@
                 </td>
                 <td>
                     @Html.ActionLink("Conseilleclient", "Details", new { id = item.ConseillerFK })|
-                    @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                     @Html.ActionLink("Edit", "Edit", new {  id=item.identifiant}) |
                 |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                @Html.ActionLink("Delete", "Delete", new {  id=item.identifiant })
                 </td>
             </tr>
         }

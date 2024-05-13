@@ -56,6 +56,8 @@ namespace EX.UI.Web.Controllers
                 if (photoImg != null && photoImg.Length > 0)
                 {
                     // Save the image file to the "wwwroot/Images" folder
+                  //  var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + "_" + Path.GetFileName(photoImg.FileName);
+
                     var fileName = Path.GetFileName(photoImg.FileName);
                     var uploadsFolder = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "Images");
                     var filePath = Path.Combine(uploadsFolder, fileName);
@@ -88,16 +90,20 @@ namespace EX.UI.Web.Controllers
         // GET: CLientController/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+
+            return View(clientService.Get(id));
         }
 
         // POST: CLientController/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Edit(int id, CLient c)
         {
             try
-            {
+            {var clinet=clientService.Get(id);
+                clinet = c;
+
+                clientService.Update(clinet);
                 return RedirectToAction(nameof(Index));
             }
             catch
@@ -109,7 +115,8 @@ namespace EX.UI.Web.Controllers
         // GET: CLientController/Delete/5
         public ActionResult Delete(int id)
         {
-            return View();
+
+            return View(clientService.Get(id));
         }
 
         // POST: CLientController/Delete/5
@@ -118,7 +125,9 @@ namespace EX.UI.Web.Controllers
         public ActionResult Delete(int id, IFormCollection collection)
         {
             try
-            {
+            {var c = clientService.Get(id);
+                clientService.Delete(c);
+
                 return RedirectToAction(nameof(Index));
             }
             catch

@@ -38,10 +38,11 @@ namespace EX.Data
                 }
             }
             modelBuilder.Entity<Reservation>()
-        .HasOne(r => r.cLient)
-        .WithMany()
-        .HasForeignKey(r => r.CLientId)
-        .IsRequired();
+                .HasOne(r => r.cLient)
+                .WithMany()
+                .HasForeignKey(r => r.CLientId)
+                .IsRequired();
+            //tttttttttttttttttttttt
             modelBuilder.Entity<Activite>().OwnsOne(a => a.zone);
             base.OnModelCreating(modelBuilder);
         }

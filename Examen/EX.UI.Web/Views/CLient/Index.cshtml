@@ -1,0 +1,80 @@
+﻿@model IEnumerable<EX.Core.Domain.CLient>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<div>
+    <form asp-action="Index" method="get" class="form-inline">
+        <div class="form-group mx-sm-3 mb-2">
+            <label for="login" class="sr-only">Login</label>
+            <input type="text" class="form-control" id="login" name="login" placeholder="Search by Login">
+        </div>
+        <button type="submit" class="btn btn-primary mb-2">Search</button>
+    </form>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.identifiant)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.login)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.password)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.ConseillerFK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.photo)
+            </th>
+
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.identifiant)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.login)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+
+               
+                <td>
+                    @Html.DisplayFor(modelItem => item.ConseillerFK)
+                </td>
+
+                <td>
+                    <img src="@Url.Content("~/Images/" + item.photo)" alt="Photo du client" style="max-width: 100px; max-height: 100px;" />
+
+                    @*<img src="@item.photo" alt="Photo du client" style="max-width: 100px; max-height: 100px;" />
+                *@
+                    @*@Html.DisplayFor(modelItem => item.photo)*@
+                </td>
+                <td>
+                    @Html.ActionLink("Conseilleclient", "Details", new { id = item.ConseillerFK })|
+                    @* @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,47 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "EX.Core.Services/1.0.0": {
+        "dependencies": {
+          "EX.Core.Domain": "1.0.0",
+          "EX.Core.Interfaces": "1.0.0"
+        },
+        "runtime": {
+          "EX.Core.Services.dll": {}
+        }
+      },
+      "EX.Core.Domain/1.0.0": {
+        "runtime": {
+          "EX.Core.Domain.dll": {}
+        }
+      },
+      "EX.Core.Interfaces/1.0.0": {
+        "runtime": {
+          "EX.Core.Interfaces.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "EX.Core.Services/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EX.Core.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "EX.Core.Interfaces/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
